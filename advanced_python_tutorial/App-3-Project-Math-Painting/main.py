@@ -1,91 +1,46 @@
-import numpy as np
-from PIL import Image
-from datetime import datetime
+from canvas import Canvas
+from shapes import Square, Rectangle
 
-# black: data[:] = [0, 0, 0]
-# white: data[:] = [255, 255, 255]
+canv_width = int(input("Enter canvas width in pixels: "))
+canv_height = int(input("Enter canvas height in pixels: "))
+canv_color = input("Choose canvas color, black or white: ")
 
-class Canvas:
+colors = {'black': [0, 0, 0], 'white': [255, 255, 255]}
 
-    def __init__(self, width, height, color):
-        self.color = color
-        self.height = height
-        self.width = width
+canv = Canvas(canv_width, canv_height, colors[canv_color.lower()])
 
-        self.canvas = np.zeros((self.height, self.width, 3), dtype=np.uint8)
-        self.canvas[:] = color
+while True:
+    next_object = input("Choose next object to draw, 'square' or 'rectangle'. Type 'quit' to finish. ")
 
-    def make(self):
-        current_time = datetime.now()
-        img = Image.fromarray(self.canvas, 'RGB')
-        img.save(f"images/canvas_{current_time.strftime('%Y%m%d_%H%M%S')}.png")
+    if next_object.lower() == 'square':
+        # Ask for new square properties
+        square_x = int(input("Enter square x-origin: "))
+        square_y = int(input("Enter square y-origin: "))
+        square_side = int(input("Enter square side length in pixels: "))
+        square_r = int(input("Enter value between 0 and 255 to define square red depth: "))
+        square_g = int(input("Enter value between 0 and 255 to define square green depth: "))
+        square_b = int(input("Enter value between 0 and 255 to define square blue depth: "))
 
-    def canvas(self):
-        return self.canvas
+        square = Square(square_x, square_y, square_side, [square_r, square_g, square_b])
+        square.draw(canv)
 
+    elif next_object.lower() == 'rectangle':
+        # Ask for new rectangle properties
+        rectangle_x = int(input("Enter rectangle x-origin: "))
+        rectangle_y = int(input("Enter rectangle y-origin: "))
+        rectangle_width = int(input("Enter rectangle width in pixels: "))
+        rectangle_height = int(input("Enter rectangle height in pixels: "))
+        rectangle_r = int(input("Enter value between 0 and 255 to define rectangle red depth: "))
+        rectangle_g = int(input("Enter value between 0 and 255 to define rectangle green depth: "))
+        rectangle_b = int(input("Enter value between 0 and 255 to define rectangle blue depth: "))
 
-class Square:
+        rectangle = Rectangle(rectangle_x, rectangle_y, rectangle_width, rectangle_height,
+                              [rectangle_r, rectangle_g, rectangle_b])
+        rectangle.draw(canv)
 
-    def __init__(self, x, y, side, color):
-        self.color = color
-        self.side = side
-        self.y = y
-        self.x = x
-
-    def draw(self, canvas):
-        canvas[self.x:self.x+self.side, self.y:self.y+self.side] = self.color
-
-
-class Rectangle:
-
-    def __init__(self, x, y, width, height, color):
-        self.color = color
-        self.height = height
-        self.width = width
-        self.y = y
-        self.x = x
-
-    def draw(self, canvas):
-        canvas[self.x:self.x+self.height, self.y:self.y+self.width] = self.color
-
-
-canv = Canvas(100, 100, [255, 255, 255])
-square = Square(44, 28, 40, [255, 0, 0])
-square.draw(canv.canvas)
-rect1 = Rectangle(50, 55, 40, 24, [0, 0, 0])
-rect1.draw(canv.canvas)
+    elif next_object.lower() == 'quit':
+        break
 
 canv.make()
 
 
-
-
-
-
-#
-#
-# class Rectangle:
-#
-#     def __init__(self, x, y, width, height, color):
-#         self.color = color
-#         self.height = height
-#         self.side = width
-#         self.y = y
-#         self.x = x
-#
-#     def draw(self, canvas):
-#         pass
-
-# def make(self):
-#     canvas = np.zeros((self.height, self.width, 3), dtype=np.uint8)
-#
-#     if self.color.lower() == "white":
-#         canvas[:] = [255, 255, 255]
-#         img = Image.fromarray(canvas, 'RGB')
-#         img.save('images/test_canvas.png')
-#     elif self.color.lower() == 'black':
-#         canvas[:] = [0, 0, 0]
-#         img = Image.fromarray(canvas, 'RGB')
-#         img.save('images/test_canvas.png')
-#     else:
-#         print("Wrong canvas color! Only 'white' or 'black' are available!")
