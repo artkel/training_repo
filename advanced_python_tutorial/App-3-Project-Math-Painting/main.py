@@ -42,5 +42,3 @@ while True:
         break
 
 canv.make()
-
-
