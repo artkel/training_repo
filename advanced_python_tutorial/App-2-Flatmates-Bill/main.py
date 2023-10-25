@@ -1,5 +1,5 @@
 from flat import Bill, Flatmate
-from reports import PdfReport
+from reports import PdfReport, FileSharer
 
 period = input("Enter the period (Month-YYYY): ")
 amount = float(input("Enter the bill amount in USD: "))
@@ -20,3 +20,8 @@ print(f"{flatmate2.name} pays: {flatmate2.pays(bill=the_bill, flatmate2=flatmate
 
 pdf_report = PdfReport(filename=f"reports\Report_{period}.pdf")
 pdf_report.generate(flatmate1=flatmate1, flatmate2=flatmate2, bill=the_bill)
+
+file_sharer = FileSharer(filepath=pdf_report.filename)
+print(file_sharer.share())
+
+# deployment replit: https://replit.com/@ArtemKel/flat-mates-app?embed=1
