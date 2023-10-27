@@ -31,14 +31,23 @@ class CameraScreen(Screen):
         and saves a photo image under that filename
         """
         current_time = datetime.now()
-        filepath = f"images/img_{current_time.strftime('%Y%m%d_%H%M%S')}.png"
-        self.ids.camera.export_to_png(filepath)
+        self.filepath = f"images/img_{current_time.strftime('%Y%m%d_%H%M%S')}.png"
+        self.ids.camera.export_to_png(self.filepath)
         self.manager.current = 'image_screen'
-        self.manager.current_screen.ids.img.source = filepath
+        self.manager.current_screen.ids.img.source = self.filepath
 
 
 class ImageScreen(Screen):
-    pass
+    def create_link(self):
+        """
+        Accesses the photo filepath, uploads it to the web,
+        and inserts the link in the label widget
+        :return:
+        """
+        filepath = App.get_running_app().root.ids.camera_screen.filepath
+        filesharer = FileSharer(filepath = filepath)
+        url = filesharer.share()
+        self.ids.link.text = url
 
 class RootWidget(ScreenManager):
     pass

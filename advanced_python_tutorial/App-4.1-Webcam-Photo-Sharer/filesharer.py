@@ -1,3 +1,5 @@
+from filestack import Client
+
 class FileSharer:
     """
     Uploads file into the cloud.
