@@ -20,6 +20,7 @@ input[type=text] {
     width: 100%;
     padding: 8px 8px;
     margin: 10px 0;
+    font-size: 18px;
 }
 
 input[type=submit]{
@@ -29,6 +30,7 @@ input[type=submit]{
     padding: 12px 12px;
     border: none;
     border-radius: 6px;
+    font-size: 18px;
 
 }
 
