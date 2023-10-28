@@ -28,10 +28,11 @@ class ResultsPage(MethodView):
         flatmate2 = flat.Flatmate(billform.name2.data, float(billform.days_in_house2.data))
 
         return render_template('results.html',
+                               general_info=f"Total bill amount for {billform.period.data} is {billform.amount.data}$",
                                name1=flatmate1.name,
-                               amount1=f"$ {round(flatmate1.pays(the_bill, flatmate2), 2)}",
+                               amount1=f"{round(flatmate1.pays(the_bill, flatmate2), 2)}$",
                                name2=flatmate2.name,
-                               amount2=f"$ {round(flatmate2.pays(the_bill, flatmate1), 2)}")
+                               amount2=f"{round(flatmate2.pays(the_bill, flatmate1), 2)}$")
 
 
 class BillForm(Form):

@@ -4,6 +4,18 @@ h2 {
     font-size: 50px;
 }
 
+p {
+    font-size: 25px;
+}
+
+li {
+    font-size: 25px;
+}
+
+a {
+    font-size: 22px; /* You can adjust the font size as needed */
+}
+
 input[type=text] {
     width: 100%;
     padding: 8px 8px;
