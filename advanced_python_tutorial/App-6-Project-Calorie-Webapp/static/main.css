@@ -4,10 +4,23 @@ h2 {
     font-size: 50px;
 }
 
+p {
+    font-size: 25px;
+}
+
+li {
+    font-size: 25px;
+}
+
+a {
+    font-size: 22px;
+}
+
 input[type=text] {
     width: 100%;
     padding: 8px 8px;
     margin: 10px 0;
+    font-size: 18px;
 }
 
 input[type=submit]{
@@ -17,11 +30,12 @@ input[type=submit]{
     padding: 12px 12px;
     border: none;
     border-radius: 6px;
+    font-size: 18px;
 
 }
 
 body {
-    background-color: Black;
-    color: White;
+    background-color: GhostWhite;
+    color: Black;
     padding: 20px;
 }
