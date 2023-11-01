@@ -42,11 +42,11 @@ class CaloriesFormPage(MethodView):
 
 
 class CaloriesForm(Form):
-    weight = StringField("Weight (kg): ", default = 70)
-    height = StringField("Height (cm): ", default = 170)
-    age = StringField("Age: ", default = 30)
-    country = StringField("Country: ", default = "Germany")
-    city = StringField("City: ", default = "Hamburg")
+    weight = StringField("Weight (kg): ", default=70)
+    height = StringField("Height (cm): ", default=170)
+    age = StringField("Age: ", default=30)
+    country = StringField("Country: ", default="Germany")
+    city = StringField("City: ", default="Hamburg")
     button = SubmitField("Calculate")
 
 app.add_url_rule('/',
