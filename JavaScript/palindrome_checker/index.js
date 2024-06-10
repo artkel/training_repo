@@ -9,4 +9,6 @@ function check() {
     } else {
         alert(`${value} is not a palindrome`)
     }
+
+    input.value = ""
 }
