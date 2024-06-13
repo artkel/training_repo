@@ -56,12 +56,12 @@ function gamePaper() {
     document.getElementById('result-message-final').textContent = "DRAW";
     document.getElementById('result-message-final').className = 'draw';
   } else if (computer_choice === 'scissors') {
-    victory_count++
+    loss_count++
     document.getElementById('result-message').textContent = "Paper vs Scissors!";
     document.getElementById('result-message-final').textContent = "LOSS";
     document.getElementById('result-message-final').className = 'loss';
   } else {
-    loss_count++
+    victory_count++
     document.getElementById('result-message').textContent = "Paper vs Rock!";
     document.getElementById('result-message-final').textContent = "WIN";
     document.getElementById('result-message-final').className = 'win';
