@@ -10,13 +10,22 @@
   <h3>Rock-Paper-Scissors</h3>
   <button id="rock" onclick="gameRock()">Rock</button>
   <button id="paper" onclick="gamePaper()">Paper</button>
-  <button id="scissors" onclick="gameScissors()">Scissors</button><br><br>
+  <button id="scissors" onclick="gameScissors()">Scissors</button><br>
   <p id="result-message">Good Luck!</p>
-  <p id="result-message-final"></p><br>
-  <p><b>Score:</b></p>
-  <li id="human-score">Human - 0</li>
-  <li id="computer-score">Computer - 0</li>
-  <li id="draw-score">Draw - 0</li>
+  <p id="result-message-final">you've got zero chances, human</p><br>
+  <p><b>Score</b></p>
+  <table>
+    <tr>
+      <th>Human</th>
+      <th>Computer</th>
+      <th>Draw</th>
+    </tr>
+    <tr>
+      <td id="human-score">0</td>
+      <td id="computer-score">0</td>
+      <td id="draw-score">0</td>
+    </tr>
+  </table>
   <p id="games-played">Games played: 0</p>
   <button id="reset" onclick="resetScore()">Reset</button>
 

@@ -25,6 +25,7 @@ button {
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 140px;
 }
 
 button#rock {
@@ -46,12 +47,15 @@ button:hover {
 #result-message {
   font-size: 1.7em;
   margin-top: 20px;
+  margin-bottom: -18px;
 }
 
 #result-message-final {
   font-size: 2em;
   font-weight: bold;
+  color: #f0f0f0
 }
+
 
 #result-message-final.win {
   color: green;
@@ -70,10 +74,28 @@ li, p {
 }
 
 #games-played {
-  margin-top: 10px;
+  margin-top: 18px;
+}
+
+table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  border: none;
+  width: 50%;
+  margin: 0 auto;
+}
+
+th, td {
+  border: 1px solid #d6cdcd;
+  padding: 12px;
+  font-size: 1.3em;
+}
+
+th {
+  background-color: #f2f2f2;
 }
 
 button#reset {
   background-color: #73e395;
-  margin-top: 15px;
+  margin-top: 25px;
 }

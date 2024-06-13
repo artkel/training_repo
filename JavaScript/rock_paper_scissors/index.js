@@ -7,9 +7,9 @@ let victory_count = 0;
 let loss_count = 0;
 
 function updateScoreDisplay() {
-  document.getElementById('human-score').textContent = `Human - ${victory_count}`;
-  document.getElementById('computer-score').textContent = `Computer - ${loss_count}`;
-  document.getElementById('draw-score').textContent = `Draw - ${draw_count}`;
+  document.getElementById('human-score').textContent = victory_count;
+  document.getElementById('computer-score').textContent = loss_count;
+  document.getElementById('draw-score').textContent = draw_count;
   document.getElementById('games-played').textContent = `Games played: ${game_count}`;
 }
 
@@ -105,7 +105,7 @@ function resetScore() {
   draw_count = 0;
   updateScoreDisplay();
   document.getElementById('result-message').textContent = "Good Luck!";
-  document.getElementById('result-message-final').textContent = "";
+  document.getElementById('result-message-final').textContent = "you've got zero chances, human";
   document.getElementById('result-message-final').className = '';
 }
 
