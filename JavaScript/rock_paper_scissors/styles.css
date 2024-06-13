@@ -1,0 +1,79 @@
+/* General styles */
+body {
+  width:100%;
+  /* margin-left:auto;
+  margin-right:auto; */
+  text-align: center;
+  height: 100vh;
+  margin: 10px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+}
+
+
+h3 {
+  font-size: 2.2em;
+  margin-bottom: 40px;
+  color: rgb(112, 123, 126);
+}
+
+button {
+  padding: 14px 30px;
+  font-size: 1.4em;
+  margin: 8px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button#rock {
+  background-color: #d2b48c; /* light-brown */
+}
+
+button#paper {
+  background-color: #add8e6; /* light-blue */
+}
+
+button#scissors {
+  background-color: #ffa07a; /* light-orange */
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#result-message {
+  font-size: 1.7em;
+  margin-top: 20px;
+}
+
+#result-message-final {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#result-message-final.win {
+  color: green;
+}
+
+#result-message-final.draw {
+  color: gray;
+}
+
+#result-message-final.loss {
+  color: red;
+}
+
+li, p {
+  font-size: 1.5em;
+}
+
+#games-played {
+  margin-top: 10px;
+}
+
+button#reset {
+  background-color: #73e395;
+  margin-top: 15px;
+}
