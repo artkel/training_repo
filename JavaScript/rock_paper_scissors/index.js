@@ -1,16 +1,17 @@
 const options = ['rock', 'paper', 'scissors'];
+const score = {
+  game_count: 0,
+  draw_count: 0,
+  victory_count: 0,
+  loss_count: 0
+};
 
-// if user selects something, computer also selects; then winner is defined; then score is updated
-let game_count = 0;
-let draw_count = 0;
-let victory_count = 0;
-let loss_count = 0;
 
 function updateScoreDisplay() {
-  document.getElementById('human-score').textContent = victory_count;
-  document.getElementById('computer-score').textContent = loss_count;
-  document.getElementById('draw-score').textContent = draw_count;
-  document.getElementById('games-played').textContent = `Games played: ${game_count}`;
+  document.getElementById('human-score').textContent = score.victory_count;
+  document.getElementById('computer-score').textContent = score.loss_count;
+  document.getElementById('draw-score').textContent = score.draw_count;
+  document.getElementById('games-played').textContent = `Games played: ${score.game_count}`;
 }
 
 function gameRock() {
@@ -19,21 +20,21 @@ function gameRock() {
   let computer_choice = options[choice_idx];
   
 
-  game_count++;
+  score.game_count++;
   updateScoreDisplay();
 
   if (computer_choice === 'rock') {
-    draw_count++
+    score.draw_count++
     document.getElementById('result-message').textContent = "Rock vs Rock!";
     document.getElementById('result-message-final').textContent = "DRAW";
     document.getElementById('result-message-final').className = 'draw';
   } else if (computer_choice === 'scissors') {
-    victory_count++
+    score.victory_count++
     document.getElementById('result-message').textContent = "Rock vs Scissors!";
     document.getElementById('result-message-final').textContent = "WIN";
     document.getElementById('result-message-final').className = 'win';
   } else {
-    loss_count++
+    score.loss_count++
     document.getElementById('result-message').textContent = "Rock vs Paper!";
     document.getElementById('result-message-final').textContent = "LOSS";
     document.getElementById('result-message-final').className = 'loss';
@@ -48,20 +49,20 @@ function gamePaper() {
   let computer_choice = options[choice_idx];
   
 
-  game_count++;
+  score.game_count++;
 
   if (computer_choice === 'paper') {
-    draw_count++
+    score.draw_count++
     document.getElementById('result-message').textContent = "Paper vs Paper!";
     document.getElementById('result-message-final').textContent = "DRAW";
     document.getElementById('result-message-final').className = 'draw';
   } else if (computer_choice === 'scissors') {
-    loss_count++
+    score.loss_count++
     document.getElementById('result-message').textContent = "Paper vs Scissors!";
     document.getElementById('result-message-final').textContent = "LOSS";
     document.getElementById('result-message-final').className = 'loss';
   } else {
-    victory_count++
+    score.victory_count++
     document.getElementById('result-message').textContent = "Paper vs Rock!";
     document.getElementById('result-message-final').textContent = "WIN";
     document.getElementById('result-message-final').className = 'win';
@@ -76,20 +77,20 @@ function gameScissors() {
   let computer_choice = options[choice_idx];
   
 
-  game_count++;
+  score.game_count++;
 
   if (computer_choice === 'scissors') {
-    draw_count++
+    score.draw_count++
     document.getElementById('result-message').textContent = "Scissors vs Scissors!";
     document.getElementById('result-message-final').textContent = "DRAW";
     document.getElementById('result-message-final').className = 'draw';
   } else if (computer_choice === 'paper') {
-    victory_count++
+    score.victory_count++
     document.getElementById('result-message').textContent = "Scissors vs Paper!";
     document.getElementById('result-message-final').textContent = "WIN";
     document.getElementById('result-message-final').className = 'win';
   } else {
-    loss_count++
+    score.loss_count++
     document.getElementById('result-message').textContent = "Scissors vs Rock!";
     document.getElementById('result-message-final').textContent = "LOSS";
     document.getElementById('result-message-final').className = 'loss';
@@ -99,10 +100,10 @@ function gameScissors() {
 }
 
 function resetScore() {
-  game_count = 0;
-  victory_count = 0;
-  loss_count = 0;
-  draw_count = 0;
+  score.game_count = 0;
+  score.victory_count = 0;
+  score.loss_count = 0;
+  score.draw_count = 0;
   updateScoreDisplay();
   document.getElementById('result-message').textContent = "Good Luck!";
   document.getElementById('result-message-final').textContent = "you've got zero chances, human";
