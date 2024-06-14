@@ -1,16 +1,21 @@
 const options = ['rock', 'paper', 'scissors'];
-const score = {
+const score = JSON.parse(localStorage.getItem('score')) || {
   game_count: 0,
   draw_count: 0,
   victory_count: 0,
-  loss_count: 0
+  loss_count: 0 
 };
+
+localStorage.getItem('score');
 
 function updateScoreDisplay() {
   document.getElementById('human-score').textContent = score.victory_count;
   document.getElementById('computer-score').textContent = score.loss_count;
   document.getElementById('draw-score').textContent = score.draw_count;
   document.getElementById('games-played').textContent = `Games played: ${score.game_count}`;
+
+  localStorage.setItem('score', JSON.stringify(score));
+
 }
 
 function playGame(playerChoice) {
@@ -53,8 +58,11 @@ function resetScore() {
   document.getElementById('result-message-final').className = '';
 }
 
+
 // Event listeners for buttons
 document.getElementById('rock').addEventListener('click', () => playGame('rock'));
 document.getElementById('paper').addEventListener('click', () => playGame('paper'));
 document.getElementById('scissors').addEventListener('click', () => playGame('scissors'));
 document.getElementById('reset').addEventListener('click', resetScore);
+
+updateScoreDisplay();
