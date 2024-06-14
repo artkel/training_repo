@@ -6,8 +6,6 @@ const score = JSON.parse(localStorage.getItem('score')) || {
   loss_count: 0 
 };
 
-localStorage.getItem('score');
-
 function updateScoreDisplay() {
   document.getElementById('human-score').textContent = score.victory_count;
   document.getElementById('computer-score').textContent = score.loss_count;
