@@ -4,14 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DOM Projects</title>
+  <style>
+
+    body {
+      font-family: Arial;
+    }
+
+    .subscribe-button {
+      background-color: black;
+      color: whitesmoke;
+      border: none;
+      margin-top: 12px;
+      margin-bottom: 30px;
+      padding: 12px;
+      padding-left: 25px;
+      padding-right: 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .is-subscribed {
+      background-color: rgb(240, 240, 240);
+      color: black;
+    }
+
+    .cost-input {
+      font-size: 15px;
+      padding: 10px;
+    }
+
+    .calculate-button {
+      font-size: 15px;
+      padding: 10px 25px;
+      color: white;
+      background-color: green;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+  </style>
 </head>
 <body>
   <p>YouTube Subscribe Button</p>
-  <button onclick="subscribe()" class="js-subscribe-button">Subscribe</button><br><br><br>
+  <button onclick="subscribe()" class="js-subscribe-button subscribe-button">Subscribe</button><br><br><br>
 
 <p>Amazon Shipping Calculator</p>
-<input type="text" placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeydown(event)">
-<button onclick="calculateTotal()">Calculate</button>
+<input type="text" placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="handleCostKeydown(event)">
+<button onclick="calculateTotal()" class="calculate-button">Calculate</button>
 <p class="js-total-cost"></p>
 
 
@@ -24,8 +65,12 @@
       const buttonElement = document.querySelector('.js-subscribe-button');
 
       if (buttonElement.innerText === 'Subscribe') {
-        buttonElement.innerHTML = 'Subscribed'
-      } else {buttonElement.innerHTML = 'Subscribe'}
+        buttonElement.innerHTML = 'Subscribed';
+        buttonElement.classList.add('is-subscribed');
+      } else {
+        buttonElement.innerHTML = 'Subscribe';
+        buttonElement.classList.remove('is-subscribed')
+      }
     }
 
     function calculateTotal() {
