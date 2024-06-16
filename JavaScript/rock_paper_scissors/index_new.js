@@ -1,7 +1,7 @@
 const options = ['rock', 'paper', 'scissors'];
 const score = JSON.parse(localStorage.getItem('score')) || {
   game_count: 0,
-  draw_count: 0,
+  tie_count: 0,
   victory_count: 0,
   loss_count: 0 
 };
@@ -9,7 +9,7 @@ const score = JSON.parse(localStorage.getItem('score')) || {
 function updateScoreDisplay() {
   document.getElementById('human-score').textContent = score.victory_count;
   document.getElementById('computer-score').textContent = score.loss_count;
-  document.getElementById('draw-score').textContent = score.draw_count;
+  document.getElementById('tie-score').textContent = score.tie_count;
   document.getElementById('games-played').textContent = `Games played: ${score.game_count}`;
 
   localStorage.setItem('score', JSON.stringify(score));
@@ -22,10 +22,10 @@ function playGame(playerChoice) {
   score.game_count++;
 
   if (playerChoice === computerChoice) {
-    score.draw_count++;
+    score.tie_count++;
     document.getElementById('result-message').textContent = `${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} vs ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!`;
-    document.getElementById('result-message-final').textContent = "DRAW";
-    document.getElementById('result-message-final').className = 'draw';
+    document.getElementById('result-message-final').textContent = "TIE";
+    document.getElementById('result-message-final').className = 'tie';
   } else if (
     (playerChoice === 'rock' && computerChoice === 'scissors') ||
     (playerChoice === 'paper' && computerChoice === 'rock') ||
@@ -49,7 +49,7 @@ function resetScore() {
   score.game_count = 0;
   score.victory_count = 0;
   score.loss_count = 0;
-  score.draw_count = 0;
+  score.tie_count = 0;
   updateScoreDisplay();
   document.getElementById('result-message').textContent = "Good Luck!";
   document.getElementById('result-message-final').textContent = "you've got zero chances, human";

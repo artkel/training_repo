@@ -10,7 +10,6 @@ body {
   background-color: #f0f0f0;
 }
 
-
 h3 {
   font-size: 2.2em;
   margin-bottom: 40px;
@@ -61,7 +60,7 @@ button:hover {
   color: green;
 }
 
-#result-message-final.draw {
+#result-message-final.tie {
   color: gray;
 }
 
@@ -83,12 +82,13 @@ table {
   border: none;
   width: 50%;
   margin: 0 auto;
+  table-layout: fixed;
 }
 
 th, td {
-  border: 1px solid #d6cdcd;
+  border: 0.6px solid #d6cdcd;
   padding: 12px;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 th {
