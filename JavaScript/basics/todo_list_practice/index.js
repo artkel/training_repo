@@ -1,44 +1,51 @@
-const todoList = [{
-    // name: 'make dinner',
-    // dueDate: '2022-12-22'
-  }
-  ];
+// Load the todo list from localStorage or initialize an empty array
+let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
 
 function renderTodoList() {
   let todoListHTML = '';
 
-  for (let i=0; i<todoList.length; i++) {
+  for (let i = 0; i < todoList.length; i++) {
     const todoObject = todoList[i];
-    // const name = todoObject.name;
-    // const dueDate = todoObject.dueDate;
     const { name, dueDate } = todoObject;
+
     const html = `
       <div>${name}</div>
       <div>${dueDate}</div>
       <button onclick="
         todoList.splice(${i}, 1);
-        renderTodoList();
+        saveAndRenderTodoList();
       " class="delete-todo-button">Delete</button>
-      `;
+    `;
     todoListHTML += html;
   }
-  document.querySelector('.js-todo-list')
-    .innerHTML = todoListHTML;
+
+  document.querySelector('.js-todo-list').innerHTML = todoListHTML;
 }
 
-
-function addTodo () {
+function addTodo() {
   const inputElement = document.querySelector('.js-name-input');
-  const name = inputElement.value;
+  let name = inputElement.value.trim();  // Use trim to remove extra whitespace
+
+  if (!name) {
+    name = 'no task selected';
+  }
+
   const dateInputElement = document.querySelector('.js-due-date-input');
-  const dueDate = dateInputElement.value;
+  const dueDate = dateInputElement.value.trim();  // Use trim to remove extra whitespace
 
-  todoList.push({
-    name,
-    dueDate
-  });
+  todoList.push({ name, dueDate });
 
-  inputElement.value = ''
+  inputElement.value = '';
+  dateInputElement.value = ''; // Clear the date input as well
 
-  renderTodoList()
+  saveAndRenderTodoList();
 }
+
+function saveAndRenderTodoList() {
+  localStorage.setItem('todoList', JSON.stringify(todoList));
+  renderTodoList();
+}
+
+
+// Initial call to renderTodoList to display any pre-existing todos
+saveAndRenderTodoList();
