@@ -22,7 +22,7 @@ function autoPlay() {
   const button = document.getElementById('autoplay');
 
   if (!isAutoPlaying) {
-    intervalId = setInterval(function() {
+    intervalId = setInterval(() => {
     playGame(options[Math.floor(Math.random() * options.length)]);
     }, 1000);
     button.textContent = 'Stop Play';

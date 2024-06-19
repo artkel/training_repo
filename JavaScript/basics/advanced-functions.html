@@ -6,7 +6,22 @@
   <title>Advanced Functions</title>
 </head>
 <body>
+  <button onclick="" class="js-button">Click</button>
   <script>
+
+    const buttonElement = document.querySelector('.js-button');
+
+    const eventListener = () => {
+      console.log('click');
+    };
+    buttonElement.addEventListener('click', eventListener);
+
+    buttonElement.removeEventListener('click', eventListener);
+
+    buttonElement.addEventListener('click', () => {
+      console.log('click-click');
+    });
+
     // function greeting() {
     //   console.log('Hello');
     // }
@@ -44,12 +59,49 @@
 
     // display('next line')
 
-    setInterval(
-      function() { display('interval') },
-      2500
-    );
+    // setInterval(
+    //   function() { display('interval') },
+    //   2500
+    // );
 
-    display('next line');
+    // display('next line');
+
+
+    // [ 
+    //   'make dinner',
+    //   'wash dishes',
+    //   'watch youtube'
+    // ].forEach((value, index) => { 
+    //   if (value==='wash dishes') {
+    //     return;
+    //   }
+
+    //   display(value);
+    //   display(index); });
+
+    //   // Arrow Function
+    //   const arrowFunction = () => {
+    //     display('hello');
+    //   };
+
+    //   arrowFunction();
+
+    //   const oneParam = param => {
+    //     display(param + 1);
+    //   };
+    //   oneParam(2);
+
+    //   const oneLine = () => 2 + 3;
+    //   display(oneLine());
+
+    //   const object2 = {
+    //     method: () => {
+
+    //     },
+    //     method() {
+
+    //     }
+    //   };
 
   </script>
 </body>
