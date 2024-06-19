@@ -19,13 +19,19 @@ let isAutoPlaying = false;
 let intervalId;
 
 function autoPlay() {
+  const button = document.getElementById('autoplay');
+
   if (!isAutoPlaying) {
     intervalId = setInterval(function() {
     playGame(options[Math.floor(Math.random() * options.length)]);
     }, 1000);
+    button.textContent = 'Stop Play';
+    button.style.backgroundColor = 'red';
     isAutoPlaying = true;
   } else {
     clearInterval(intervalId);
+    button.textContent = 'Auto Play';
+    button.style.backgroundColor = '#336f99';
     isAutoPlaying = false;
   }
 }
