@@ -24,7 +24,7 @@ function autoPlay() {
   if (!isAutoPlaying) {
     intervalId = setInterval(() => {
     playGame(options[Math.floor(Math.random() * options.length)]);
-    }, 1000);
+    }, 800);
     button.textContent = 'Stop Play';
     button.style.backgroundColor = 'red';
     isAutoPlaying = true;
@@ -35,6 +35,17 @@ function autoPlay() {
     isAutoPlaying = false;
   }
 }
+
+// add key shortcups
+document.body.addEventListener('keydown', (event) => { 
+  if (event.key === 'r') {
+    playGame('rock');
+  } else if (event.key === 'p') {
+    playGame('paper');
+  } else if (event.key === 's') {
+    playGame('scissors');
+  }
+ })
 
 function playGame(playerChoice) {
   const computerChoice = options[Math.floor(Math.random() * options.length)];

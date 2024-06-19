@@ -45,6 +45,7 @@ button#reset {
 }
 
 button#autoplay {
+  background-color: #336f99;
   color: aliceblue;
   margin-top: 25px;
 }
