@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions</title>
+</head>
+<body>
+  <script>
+    const product = {
+      name: 'socks',
+      price: 9.95,
+      currency: 'USD',
+      'delivery-tyme': '1 day',
+      rating: {stars: 4.65, 
+               count: 809
+              }
+    };
+
+    console.log(product.name);
+    console.log(product.price);
+
+    product.name = 'cotton socks'
+    console.log(product);
+    product.newProperty = true;
+    console.log(product)
+    delete product.newProperty;
+    console.log(product)
+
+    console.log(JSON.stringify(product));
+
+    const { price, currency } = product
+    console.log(price);
+
+    let message = 'Hello'
+    const object5 = {
+      // message: message
+      message
+    }
+    console.log(object5);
+
+  </script>
+</body>
+</html>
