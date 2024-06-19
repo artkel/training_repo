@@ -15,6 +15,20 @@ function updateScoreDisplay() {
   localStorage.setItem('score', JSON.stringify(score));
 
 }
+let isAutoPlaying = false;
+let intervalId;
+
+function autoPlay() {
+  if (!isAutoPlaying) {
+    intervalId = setInterval(function() {
+    playGame(options[Math.floor(Math.random() * options.length)]);
+    }, 1000);
+    isAutoPlaying = true;
+  } else {
+    clearInterval(intervalId);
+    isAutoPlaying = false;
+  }
+}
 
 function playGame(playerChoice) {
   const computerChoice = options[Math.floor(Math.random() * options.length)];

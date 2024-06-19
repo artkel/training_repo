@@ -18,13 +18,13 @@ h3 {
 
 button {
   padding: 14px 30px;
-  font-size: 1.4em;
+  font-size: 1.2em;
   margin: 8px;
   border: none;
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 140px;
+  width: 150px;
 }
 
 button#rock {
@@ -37,6 +37,16 @@ button#paper {
 
 button#scissors {
   background-color: #ffa07a; /* light-orange */
+}
+
+button#reset {
+  background-color: #73e395;
+  margin-top: 25px;
+}
+
+button#autoplay {
+  background-color: #2ca19d;
+  margin-top: 25px;
 }
 
 button:hover {
@@ -93,9 +103,4 @@ th, td {
 
 th {
   background-color: #f2f2f2;
-}
-
-button#reset {
-  background-color: #73e395;
-  margin-top: 25px;
 }
